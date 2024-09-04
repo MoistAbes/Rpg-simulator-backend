@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin
+@CrossOrigin(origins = "*") // Allow all origins
 @RestController
 @RequestMapping(value = "/character")
 public class CharacterController {
@@ -21,16 +21,16 @@ public class CharacterController {
         this.characterService = characterService;
     }
 
-    @GetMapping(value = "/{userId}")
+    @GetMapping(value = "/find-all/{userId}")
     public ResponseEntity<List<Character>> getPlayerCharacters(@PathVariable Long userId) {
         List<Character> characters = characterService.findAllCharactersByPlayerId(userId);
         System.out.println("Characters: " + characters);
         return ResponseEntity.ok(characters);
     }
 
-    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Character> createCharacter(@RequestBody Character character) {
-        Character createdCharacter = characterService.createCharacter(character);
+    @GetMapping(value = "/create/{characterName}/{userId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Character> createCharacter(@PathVariable String characterName ,@PathVariable Long userId) {
+        Character createdCharacter = characterService.createCharacter(characterName, userId);
         return ResponseEntity.ok(createdCharacter);
     }
 }

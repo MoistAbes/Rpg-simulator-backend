@@ -31,9 +31,10 @@ public class UserEntityController {
         UserEntity userEntity = userService.loginUser(username, password);
 
         if (userEntity == null) {
-            System.out.println("LOGIN SUCCESFULL");
-        }else {
             System.out.println("LOGIN FAILED");
+
+        }else {
+            System.out.println("LOGIN SUCCESFULL");
         }
 
         return ResponseEntity.ok(userEntity);
