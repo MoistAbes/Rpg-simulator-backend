@@ -29,7 +29,7 @@ public class UserEntity {
     }
 
     @OneToMany(mappedBy = "user")
-    @JsonIgnoreProperties("user")
+    @JsonIgnoreProperties(value = {"user", "storage"})
     private List<Character> characters;
 
     @Override

@@ -28,7 +28,7 @@ public class CharacterController {
         return ResponseEntity.ok(characters);
     }
 
-    @GetMapping(value = "/create/{characterName}/{userId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/create/{characterName}/{userId}")
     public ResponseEntity<Character> createCharacter(@PathVariable String characterName ,@PathVariable Long userId) {
         Character createdCharacter = characterService.createCharacter(characterName, userId);
         return ResponseEntity.ok(createdCharacter);

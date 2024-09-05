@@ -1,6 +1,7 @@
 package dev.zymixon.rpg_simulation.services;
 
 import dev.zymixon.rpg_simulation.entities.Character;
+import dev.zymixon.rpg_simulation.entities.CharacterStats;
 import dev.zymixon.rpg_simulation.entities.UserEntity;
 import dev.zymixon.rpg_simulation.repositories.CharacterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,11 +37,11 @@ public class CharacterService {
                 .name(characterName)
                 .level(1)
                 .experience(0)
-                .attack(10)
-                .defense(5)
-                .health(100)
-                .luck(5)
-                .speed(5)
+                .stats(CharacterStats.builder()
+                        .attack(5)
+                        .defense(5)
+                        .health(100)
+                        .build())
                 .build();
     }
 }
