@@ -1,12 +1,16 @@
 package dev.zymixon.rpg_simulation.services;
 
-import dev.zymixon.rpg_simulation.entities.Character;
-import dev.zymixon.rpg_simulation.entities.CharacterStats;
+import dev.zymixon.rpg_simulation.entities.character.Character;
+import dev.zymixon.rpg_simulation.entities.character.CharacterEquipment;
+import dev.zymixon.rpg_simulation.entities.character.CharacterStats;
 import dev.zymixon.rpg_simulation.entities.UserEntity;
+import dev.zymixon.rpg_simulation.entities.items.InventoryItem;
+import dev.zymixon.rpg_simulation.enums.EquipmentSlot;
 import dev.zymixon.rpg_simulation.repositories.CharacterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -32,8 +36,7 @@ public class CharacterService {
 
     private Character generateCharacter(String characterName){
 
-
-        return Character.builder()
+        Character generatedCharacter = Character.builder()
                 .name(characterName)
                 .level(1)
                 .experience(0)
@@ -43,5 +46,41 @@ public class CharacterService {
                         .health(100)
                         .build())
                 .build();
+
+        //generate inventory
+        List<InventoryItem> inventory = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++){
+            inventory.add(InventoryItem.builder()
+                    .character(generatedCharacter)
+                    .item(null)
+                    .location(i)
+                    .quantity(0)
+                    .build());
+        }
+        generatedCharacter.setInventory(inventory);
+
+        //generate equipment
+        List<CharacterEquipment> equipment = new ArrayList<>();
+
+        for (EquipmentSlot slot: EquipmentSlot.values()){
+            equipment.add(CharacterEquipment.builder()
+                            .slot(slot)
+                            .character(generatedCharacter)
+                            .item(null)
+                    .build());
+        }
+
+        generatedCharacter.setEquipment(equipment);
+
+        return generatedCharacter;
+    }
+
+    public Character updateCharacter(Character character){
+
+
+        character.getInventory().forEach(inventoryItem -> inventoryItem.setCharacter(character));
+
+        return characterRepository.save(character);
     }
 }

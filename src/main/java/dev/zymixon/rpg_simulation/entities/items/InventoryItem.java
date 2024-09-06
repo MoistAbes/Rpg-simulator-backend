@@ -1,18 +1,16 @@
-package dev.zymixon.rpg_simulation.entities;
+package dev.zymixon.rpg_simulation.entities.items;
 
-import dev.zymixon.rpg_simulation.entities.items.Item;
+import dev.zymixon.rpg_simulation.entities.character.Character;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CharacterStorage {
+@Builder
+public class InventoryItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +21,12 @@ public class CharacterStorage {
     private Character character;
 
     @ManyToOne
-    @JoinColumn(name = "item_id", nullable = false)
+    @JoinColumn(name = "item_id")
     private Item item; // Reference to the Item entity
 
     private int quantity; // To track how many of this item the character has
+
+    private int location; // To track the item's position in the inventory
 
 
 }

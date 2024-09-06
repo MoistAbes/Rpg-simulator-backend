@@ -1,6 +1,7 @@
 package dev.zymixon.rpg_simulation.entities.items;
 
 import dev.zymixon.rpg_simulation.enums.ItemRarity;
+import dev.zymixon.rpg_simulation.enums.ItemType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class Item {
     private float dropChance;
     private int value;
     private ItemRarity rarity;
+    private ItemType type;
 
     @ManyToOne
     @JoinColumn(name = "armor_id")

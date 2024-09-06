@@ -1,7 +1,8 @@
-package dev.zymixon.rpg_simulation.entities;
+package dev.zymixon.rpg_simulation.entities.character;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import dev.zymixon.rpg_simulation.entities.UserEntity;
+import dev.zymixon.rpg_simulation.entities.items.InventoryItem;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -36,7 +37,11 @@ public class Character {
 
     @OneToMany(mappedBy = "character", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnoreProperties("character")
-    private List<CharacterStorage> storage = new ArrayList<>();
+    private List<InventoryItem> inventory = new ArrayList<>();
+
+    @OneToMany(mappedBy = "character", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("character")
+    private List<CharacterEquipment> equipment = new ArrayList<>();
 
     @Override
     public String toString() {

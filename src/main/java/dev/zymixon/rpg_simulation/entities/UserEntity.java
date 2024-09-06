@@ -1,6 +1,7 @@
 package dev.zymixon.rpg_simulation.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import dev.zymixon.rpg_simulation.entities.character.Character;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

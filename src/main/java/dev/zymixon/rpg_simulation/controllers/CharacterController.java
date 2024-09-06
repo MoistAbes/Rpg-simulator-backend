@@ -1,9 +1,8 @@
 package dev.zymixon.rpg_simulation.controllers;
 
-import dev.zymixon.rpg_simulation.entities.Character;
+import dev.zymixon.rpg_simulation.entities.character.Character;
 import dev.zymixon.rpg_simulation.services.CharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,5 +31,12 @@ public class CharacterController {
     public ResponseEntity<Character> createCharacter(@PathVariable String characterName ,@PathVariable Long userId) {
         Character createdCharacter = characterService.createCharacter(characterName, userId);
         return ResponseEntity.ok(createdCharacter);
+    }
+
+    @PostMapping("/update")
+    public ResponseEntity<Character> updateCharacter(@RequestBody Character character) {
+        System.out.println("CHARACTER TO UPDATE: " + character);
+        Character updatedCharacter = characterService.updateCharacter(character);
+        return ResponseEntity.ok(updatedCharacter);
     }
 }

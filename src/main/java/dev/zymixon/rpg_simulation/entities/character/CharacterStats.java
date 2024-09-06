@@ -1,4 +1,4 @@
-package dev.zymixon.rpg_simulation.entities;
+package dev.zymixon.rpg_simulation.entities.character;
 
 import jakarta.persistence.*;
 import lombok.*;
