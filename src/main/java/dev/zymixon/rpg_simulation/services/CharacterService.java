@@ -80,6 +80,7 @@ public class CharacterService {
 
 
         character.getInventory().forEach(inventoryItem -> inventoryItem.setCharacter(character));
+        character.getEquipment().forEach(equipment -> equipment.setCharacter(character));
 
         return characterRepository.save(character);
     }
