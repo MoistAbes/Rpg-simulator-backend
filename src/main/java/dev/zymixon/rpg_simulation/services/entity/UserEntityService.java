@@ -1,4 +1,4 @@
-package dev.zymixon.rpg_simulation.services;
+package dev.zymixon.rpg_simulation.services.entity;
 
 import dev.zymixon.rpg_simulation.entities.UserEntity;
 import dev.zymixon.rpg_simulation.repositories.UserEntityRepository;

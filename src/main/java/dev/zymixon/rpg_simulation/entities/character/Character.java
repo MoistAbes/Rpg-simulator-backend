@@ -37,10 +37,12 @@ public class Character {
 
     @OneToMany(mappedBy = "character", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnoreProperties("character")
+    @OrderBy("location ASC") // Sort by slot in ascending order
     private List<InventoryItem> inventory = new ArrayList<>();
 
     @OneToMany(mappedBy = "character", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnoreProperties("character")
+    @OrderBy("slot ASC") // Sort by slot in ascending order
     private List<CharacterEquipment> equipment = new ArrayList<>();
 
     @Override
@@ -48,9 +50,9 @@ public class Character {
         return "Character{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", level=" + level +
-                ", experience=" + experience +
                 ", stats=" + stats +
+                ", inventory=" + inventory +
+                ", equipment=" + equipment +
                 '}';
     }
 }

@@ -22,4 +22,11 @@ public class Weapon {
 
     private int damage;
 
+    @Override
+    public String toString() {
+        return "Weapon{" +
+                "id=" + id +
+                ", damage=" + damage +
+                '}';
+    }
 }

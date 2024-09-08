@@ -28,5 +28,11 @@ public class InventoryItem {
 
     private int location; // To track the item's position in the inventory
 
-
+    @Override
+    public String toString() {
+        return "InventoryItem{" +
+                "id=" + id +
+                ", item=" + item +
+                '}';
+    }
 }

@@ -21,4 +21,12 @@ public class Armor {
     private Long id;
 
     private int defense;
+
+    @Override
+    public String toString() {
+        return "Armor{" +
+                "id=" + id +
+                ", defense=" + defense +
+                '}';
+    }
 }

@@ -5,6 +5,7 @@ public enum EquipmentSlot {
     TORSO,
     ARMS,
     LEGS,
+    FEET,
     MAIN_HAND,
     OFF_HAND
 }

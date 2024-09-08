@@ -25,6 +25,7 @@ public class Item {
     private int value;
     private ItemRarity rarity;
     private ItemType type;
+    private String icon;
 
     @ManyToOne
     @JoinColumn(name = "armor_id")
@@ -33,4 +34,16 @@ public class Item {
     @ManyToOne
     @JoinColumn(name = "weapon_id")
     private Weapon weapon; // Optional reference to weapon
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", type=" + type +
+                ", armor=" + armor +
+                ", weapon=" + weapon +
+                '}';
+    }
 }

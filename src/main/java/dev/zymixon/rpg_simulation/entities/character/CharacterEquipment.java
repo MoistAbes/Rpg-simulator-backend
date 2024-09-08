@@ -26,5 +26,12 @@ public class CharacterEquipment {
     @JoinColumn(name = "item_id")
     private Item item; // Reference to the item being equipped
 
-
+    @Override
+    public String toString() {
+        return "CharacterEquipment{" +
+                "id=" + id +
+                ", slot=" + slot +
+                ", item=" + item +
+                '}';
+    }
 }

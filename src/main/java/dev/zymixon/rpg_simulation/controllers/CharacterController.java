@@ -1,7 +1,7 @@
 package dev.zymixon.rpg_simulation.controllers;
 
 import dev.zymixon.rpg_simulation.entities.character.Character;
-import dev.zymixon.rpg_simulation.services.CharacterService;
+import dev.zymixon.rpg_simulation.services.entity.CharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,7 +1,7 @@
 package dev.zymixon.rpg_simulation.controllers;
 
 import dev.zymixon.rpg_simulation.entities.Dungeon;
-import dev.zymixon.rpg_simulation.services.DungeonService;
+import dev.zymixon.rpg_simulation.services.entity.DungeonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;

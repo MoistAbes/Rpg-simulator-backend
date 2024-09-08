@@ -30,6 +30,10 @@ public class Enemy {
     @ManyToMany(mappedBy = "enemies")
     List<Dungeon> dungeons = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "enemyList")
+    List<Zone> zones = new ArrayList<>();
+
+
     @Override
     public String toString() {
         return "Enemy{" +

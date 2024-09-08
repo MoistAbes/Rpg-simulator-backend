@@ -1,7 +1,7 @@
 package dev.zymixon.rpg_simulation.controllers;
 
 import dev.zymixon.rpg_simulation.entities.UserEntity;
-import dev.zymixon.rpg_simulation.services.UserEntityService;
+import dev.zymixon.rpg_simulation.services.entity.UserEntityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
