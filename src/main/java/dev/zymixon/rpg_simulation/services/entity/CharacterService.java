@@ -64,7 +64,8 @@ public class CharacterService {
                 .stats(CharacterStats.builder()
                         .attack(5)
                         .defense(5)
-                        .health(100)
+                        .maxHealth(100)
+                        .currentHealth(100)
                         .build())
                 .build();
 

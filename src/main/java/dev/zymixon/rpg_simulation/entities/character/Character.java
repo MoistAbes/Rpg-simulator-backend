@@ -27,7 +27,7 @@ public class Character {
     private int experience;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "stats_id", nullable = false)
+    @JoinColumn(name = "stats_id")
     private CharacterStats stats;
 
     @ManyToOne()

@@ -16,7 +16,8 @@ public class CharacterStats {
     private Long id;
 
     private int attack;
-    private int health;
+    private int maxHealth;
+    private int currentHealth;
     private int defense;
 
 //    @OneToOne(mappedBy = "stats")
@@ -28,7 +29,8 @@ public class CharacterStats {
         return "CharacterStats{" +
                 "id=" + id +
                 ", attack=" + attack +
-                ", health=" + health +
+                ", max Health=" + maxHealth +
+                ", current Health=" + maxHealth +
                 ", defense=" + defense +
                 '}';
     }
